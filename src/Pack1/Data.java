@@ -13,7 +13,7 @@ import javax.swing.JOptionPane;
 public class Data {
 
     public String TruePath = "data.dat";
-    public String Folder = "Data";
+    public String Folder = "IDGenerator data";
     public LinkedList<ID> list_dir = new LinkedList<ID>();
 
     /**
