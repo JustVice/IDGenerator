@@ -21,6 +21,7 @@ public class Data {
      * data will be saved and loaded from a folder.
      */
     public void LoadData() {
+        System.out.print("Loading data... ");
         File path = new File(Folder);
         path.mkdir();
         path = new File(Folder + "\\" + TruePath);
@@ -38,6 +39,7 @@ public class Data {
             try {
                 ObjectInputStream getFile = new ObjectInputStream(new FileInputStream(Folder + "\\" + TruePath));
                 list_dir = (LinkedList) getFile.readObject();
+                System.out.println("done");
             } catch (IOException localIOException1) {
             } catch (ClassNotFoundException e) {
                 System.out.println("Error loading data.");
@@ -62,7 +64,7 @@ public class Data {
             System.out.println("Error\n" + ex);
         }
     }
-    
+
     /**
      * Adds a new object in the LinkedList.
      *

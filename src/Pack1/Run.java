@@ -4,7 +4,7 @@ public class Run {
 
     public void RUN() {
         Static.data.LoadData();
-        currentIDs();
+//        currentIDs();
         Static.start.setVisible(true);
     }
 

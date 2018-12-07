@@ -15,7 +15,9 @@ public class Start extends javax.swing.JFrame {
 
     public Start() {
         initComponents();
+                setIconImage(Static.getIconImage());
         setLocationRelativeTo(null);
+        this.setResizable(false);
         versionLaber.setText(Static.version);
         setTitle(Static.title);
         newId.setEditable(false);
@@ -32,6 +34,7 @@ public class Start extends javax.swing.JFrame {
         panelCurrent.setEditable(false);
         panelCurrent.setCaretPosition(0);
         panelCurrent.setLineWrap(true);
+        panelCurrent.setWrapStyleWord(true);
     }
 
     Clipboard clip = getToolkit().getSystemClipboard();
@@ -61,6 +64,7 @@ public class Start extends javax.swing.JFrame {
         twitterLabel = new javax.swing.JLabel();
         githubLabel = new javax.swing.JLabel();
         AllLinksLabel = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -69,6 +73,8 @@ public class Start extends javax.swing.JFrame {
                 jTabbedPane1MouseClicked(evt);
             }
         });
+
+        newId.setFont(new java.awt.Font("Tahoma", 0, 36)); // NOI18N
 
         generate.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         generate.setText("Generate new and copy to clipboard");
@@ -79,9 +85,9 @@ public class Start extends javax.swing.JFrame {
         });
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
-        jLabel1.setText("Random IDs");
+        jLabel1.setText("Random ID");
 
-        versionLaber.setText("jLabel3");
+        versionLaber.setText("version");
         versionLaber.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 versionLaberMouseClicked(evt);
@@ -117,14 +123,17 @@ public class Start extends javax.swing.JFrame {
                         .addGap(30, 30, 30))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(CopyCPUID)
-                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
-                                    .addComponent(newId, javax.swing.GroupLayout.PREFERRED_SIZE, 219, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(jButton1))
-                                .addComponent(generate, javax.swing.GroupLayout.Alignment.LEADING)))
-                        .addContainerGap(38, Short.MAX_VALUE))))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGap(31, 31, 31)
+                                .addComponent(newId, javax.swing.GroupLayout.PREFERRED_SIZE, 171, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jButton1))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(CopyCPUID)
+                                    .addComponent(generate))
+                                .addGap(0, 29, Short.MAX_VALUE)))
+                        .addContainerGap())))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -137,11 +146,11 @@ public class Start extends javax.swing.JFrame {
                 .addComponent(generate)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(CopyCPUID)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 26, Short.MAX_VALUE)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGap(18, 18, 18)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(newId, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButton1))
-                .addGap(24, 24, 24))
+                .addContainerGap(14, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("CPU", jPanel1);
@@ -149,6 +158,7 @@ public class Start extends javax.swing.JFrame {
         jLabel2.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         jLabel2.setText("Manual ID");
 
+        manualId.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         manualId.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 manualIdKeyTyped(evt);
@@ -178,25 +188,26 @@ public class Start extends javax.swing.JFrame {
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(jLabel2)
-                        .addComponent(manualId)
-                        .addComponent(saveUnique, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addComponent(CopyManualID))
-                .addContainerGap(26, Short.MAX_VALUE))
+                    .addComponent(jLabel2)
+                    .addComponent(saveUnique)
+                    .addComponent(manualId, javax.swing.GroupLayout.PREFERRED_SIZE, 344, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(114, 114, 114)
+                        .addComponent(CopyManualID)))
+                .addContainerGap(27, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel2)
-                .addGap(33, 33, 33)
+                .addGap(18, 18, 18)
                 .addComponent(manualId, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(saveUnique)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 20, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(CopyManualID)
-                .addContainerGap())
+                .addContainerGap(41, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("Manual", jPanel2);
@@ -211,67 +222,76 @@ public class Start extends javax.swing.JFrame {
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 385, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 386, Short.MAX_VALUE)
                 .addContainerGap())
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 176, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 185, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
-        jTabbedPane1.addTab("Current", jPanel3);
+        jTabbedPane1.addTab("Stored", jPanel3);
 
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMG/title.png"))); // NOI18N
 
-        twitterLabel.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        twitterLabel.setText("<html><a href=\"twitter.com/JustVice1\">Twitter</a><html>");
+        twitterLabel.setFont(new java.awt.Font("Bernard MT Condensed", 0, 18)); // NOI18N
+        twitterLabel.setText("<html><a href=\"twitter.com/JustVice1\">TWITTER</a><html>");
         twitterLabel.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 twitterLabelMouseClicked(evt);
             }
         });
 
-        githubLabel.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        githubLabel.setText("<html><a href=\"https://github.com/JustVice?tab=repositories\">Github</a><html>");
+        githubLabel.setFont(new java.awt.Font("Bernard MT Condensed", 0, 18)); // NOI18N
+        githubLabel.setText("<html><a href=\"https://github.com/JustVice?tab=repositories\">GITHUB</a><html>");
         githubLabel.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 githubLabelMouseClicked(evt);
             }
         });
 
-        AllLinksLabel.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        AllLinksLabel.setText("<html><a href=\"justvice.wixsite.com/info\">All links</a><html>");
+        AllLinksLabel.setFont(new java.awt.Font("Bernard MT Condensed", 0, 18)); // NOI18N
+        AllLinksLabel.setText("<html><a href=\"justvice.wixsite.com/info\">ALL LINKS</a><html>");
         AllLinksLabel.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 AllLinksLabelMouseClicked(evt);
             }
         });
 
+        jLabel4.setText("Made by Just Vice");
+
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
         jPanel4Layout.setHorizontalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel4Layout.createSequentialGroup()
+                .addContainerGap()
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel4Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jLabel3))
+                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(jPanel4Layout.createSequentialGroup()
+                                .addComponent(jLabel3)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 32, Short.MAX_VALUE))
+                            .addGroup(jPanel4Layout.createSequentialGroup()
+                                .addComponent(twitterLabel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(52, 52, 52)
+                                .addComponent(githubLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)))
+                        .addComponent(AllLinksLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(30, 30, 30))
                     .addGroup(jPanel4Layout.createSequentialGroup()
-                        .addGap(95, 95, 95)
-                        .addComponent(twitterLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(githubLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(AllLinksLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(67, Short.MAX_VALUE))
+                        .addComponent(jLabel4)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
-                .addContainerGap(25, Short.MAX_VALUE)
+                .addContainerGap()
+                .addComponent(jLabel4)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(twitterLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(githubLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -287,13 +307,11 @@ public class Start extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 410, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+            .addComponent(jTabbedPane1)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jTabbedPane1, javax.swing.GroupLayout.Alignment.TRAILING)
+            .addComponent(jTabbedPane1)
         );
 
         pack();
@@ -357,7 +375,7 @@ public class Start extends javax.swing.JFrame {
         if (str.equals("")) {
             panelCurrent.setText("No IDs stored");
         } else {
-            panelCurrent.setText("Number of ID's stored: " + Static.data.list_dir.size() + "\n" + "Current IDs stored (separated by commas):\n\n" + str);
+            panelCurrent.setText("Number of ID's created: " + Static.data.list_dir.size() + "\n" + "ID's created (separated by commas):\n\n" + str);
             panelCurrent.setCaretPosition(0);
         }
     }//GEN-LAST:event_jTabbedPane1MouseClicked
@@ -436,6 +454,7 @@ public class Start extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
