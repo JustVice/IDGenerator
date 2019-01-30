@@ -4,8 +4,8 @@ public class Run {
 
     public void RUN() {
         Static.data.LoadData();
-//        currentIDs();
-        Static.start.setVisible(true);
+        currentIDs();
+        Start start = new Start();
     }
 
     /**
@@ -33,11 +33,24 @@ public class Run {
         String str = "";
         int n = 0;
         int random = 0;
-        String chars[] = {"A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K"};
         random = (int) (Math.random() * 10000);
-        n = (int) (Math.random() * 10);
-        str = "" + random + chars[n] + (int) (Math.random() * 1000);
+        str = "" + random + randomLetter() + (int) (Math.random() * 1000);
         System.out.println("Random generated: " + str);
         return str;
     }
+
+    private String randomLetter() {
+        String[] alfabeto = {"A", "B", "C", "D", "E", "F", "G", "H", "I", "O", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "Z", "X", "Y"};
+        String result = "";
+        int randomLetterIndex = 0;
+        while (true) {
+            randomLetterIndex = ((int) (Math.random() * 100));
+            if (randomLetterIndex <= 25) {
+                break;
+            }
+        }
+        result = alfabeto[randomLetterIndex];
+        return result;
+    }
+   
 }

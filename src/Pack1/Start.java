@@ -23,6 +23,7 @@ public class Start extends javax.swing.JFrame {
         newId.setEditable(false);
         PanelCurrentSet();
         CopyButtons();
+        this.setVisible(true);
     }
 
     private void CopyButtons() {
@@ -362,7 +363,7 @@ public class Start extends javax.swing.JFrame {
             clipboardCPU();
             CopyCPUID.setEnabled(true);
         } else {
-            JOptionPane.showMessageDialog(null, "WHAT!? The ID that the system generated already exists! That's incredible. Push the button to try again.", Static.title, 0);
+            JOptionPane.showMessageDialog(null, "WHAT!? The ID that the system has generated already exists! That's incredible... please, try again.", Static.title, 0);
             newId.setText("");
         }
     }//GEN-LAST:event_generateActionPerformed

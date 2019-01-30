@@ -30,7 +30,7 @@ public class Data {
                 ObjectOutputStream writeFile = new ObjectOutputStream(new FileOutputStream(Folder + "\\" + TruePath));
                 writeFile.writeObject(list_dir);
                 writeFile.close();
-                BuildTxtFile(Folder + "\\Readme", "Do not erase the .dat file. It keeps the history of IDs created and prevents the program to do a repeated ID");
+//                BuildTxtFile(Folder + "\\Readme", "Do not erase the .dat file. It keeps the history of IDs created and prevents the program to do a repeated ID");
             } catch (IOException e) {
                 System.out.println("Error creating data file.");
                 e.printStackTrace();
