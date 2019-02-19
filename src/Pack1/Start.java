@@ -15,7 +15,7 @@ public class Start extends javax.swing.JFrame {
 
     public Start() {
         initComponents();
-                setIconImage(Static.getIconImage());
+        setIconImage(Static.getIconImage());
         setLocationRelativeTo(null);
         this.setResizable(false);
         versionLaber.setText(Static.version);
@@ -50,8 +50,8 @@ public class Start extends javax.swing.JFrame {
         generate = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         versionLaber = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
         CopyCPUID = new javax.swing.JButton();
+        onlyNumericID = new javax.swing.JRadioButton();
         jPanel2 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         manualId = new javax.swing.JTextField();
@@ -65,7 +65,6 @@ public class Start extends javax.swing.JFrame {
         twitterLabel = new javax.swing.JLabel();
         githubLabel = new javax.swing.JLabel();
         AllLinksLabel = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -95,13 +94,6 @@ public class Start extends javax.swing.JFrame {
             }
         });
 
-        jButton1.setText("Change log");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
-            }
-        });
-
         CopyCPUID.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         CopyCPUID.setText("Copy to clipboard");
         CopyCPUID.addActionListener(new java.awt.event.ActionListener() {
@@ -109,6 +101,8 @@ public class Start extends javax.swing.JFrame {
                 CopyCPUIDActionPerformed(evt);
             }
         });
+
+        onlyNumericID.setText("Generate only numeric IDs");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -123,18 +117,17 @@ public class Start extends javax.swing.JFrame {
                         .addComponent(versionLaber)
                         .addGap(30, 30, 30))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGap(6, 6, 6)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                             .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(31, 31, 31)
-                                .addComponent(newId, javax.swing.GroupLayout.PREFERRED_SIZE, 171, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(CopyCPUID)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jButton1))
+                                .addComponent(onlyNumericID))
+                            .addComponent(generate)
                             .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(CopyCPUID)
-                                    .addComponent(generate))
-                                .addGap(0, 29, Short.MAX_VALUE)))
-                        .addContainerGap())))
+                                .addComponent(newId, javax.swing.GroupLayout.PREFERRED_SIZE, 171, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(83, 83, 83)))
+                        .addContainerGap(33, Short.MAX_VALUE))))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -146,12 +139,12 @@ public class Start extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addComponent(generate)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(CopyCPUID)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(CopyCPUID)
+                    .addComponent(onlyNumericID))
                 .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(newId, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton1))
-                .addContainerGap(14, Short.MAX_VALUE))
+                .addComponent(newId, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(13, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("CPU", jPanel1);
@@ -262,37 +255,28 @@ public class Start extends javax.swing.JFrame {
             }
         });
 
-        jLabel4.setText("Made by Just Vice");
-
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
         jPanel4Layout.setHorizontalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel4Layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(jPanel4Layout.createSequentialGroup()
-                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(jPanel4Layout.createSequentialGroup()
-                                .addComponent(jLabel3)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 32, Short.MAX_VALUE))
-                            .addGroup(jPanel4Layout.createSequentialGroup()
-                                .addComponent(twitterLabel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(52, 52, 52)
-                                .addComponent(githubLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)))
-                        .addComponent(AllLinksLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(30, 30, 30))
+                        .addComponent(jLabel3)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 32, Short.MAX_VALUE))
                     .addGroup(jPanel4Layout.createSequentialGroup()
-                        .addComponent(jLabel4)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                        .addComponent(twitterLabel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(52, 52, 52)
+                        .addComponent(githubLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)))
+                .addComponent(AllLinksLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(30, 30, 30))
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel4)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap(34, Short.MAX_VALUE)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(twitterLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(githubLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -346,7 +330,7 @@ public class Start extends javax.swing.JFrame {
     }//GEN-LAST:event_saveUniqueActionPerformed
 
     private void generateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_generateActionPerformed
-        String str = Static.run.generateID();
+        String str = Static.run.generateID(onlyNumericID.isSelected());
         boolean repeat = false;
         for (int i = 0; i < Static.data.list_dir.size(); i++) {
             if (Static.data.list_dir.get(i).toString().equals(str)) {
@@ -368,6 +352,11 @@ public class Start extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_generateActionPerformed
 
+    private void numericWithLetterID() {
+
+    }
+
+
     private void jTabbedPane1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTabbedPane1MouseClicked
         String str = "";
         for (int i = 0; i < Static.data.list_dir.size(); i++) {
@@ -380,10 +369,6 @@ public class Start extends javax.swing.JFrame {
             panelCurrent.setCaretPosition(0);
         }
     }//GEN-LAST:event_jTabbedPane1MouseClicked
-
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        JOptionPane.showMessageDialog(null, Static.changeLog, Static.title, 1);
-    }//GEN-LAST:event_jButton1ActionPerformed
 
     private void versionLaberMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_versionLaberMouseClicked
         if (Static.n == 2) {
@@ -423,8 +408,8 @@ public class Start extends javax.swing.JFrame {
         openLink("https://justvice.wixsite.com/info");
     }//GEN-LAST:event_AllLinksLabelMouseClicked
 
-    private void openLink(String link){
-    if (Desktop.isDesktopSupported()) {
+    private void openLink(String link) {
+        if (Desktop.isDesktopSupported()) {
             try {
                 Desktop.getDesktop().browse(new URI(link));
             } catch (URISyntaxException | IOException ex) {
@@ -432,7 +417,7 @@ public class Start extends javax.swing.JFrame {
             }
         }
     }
-    
+
     private void clipboardCPU() {
         String toClipBoardText = newId.getText();
         StringSelection stringClip = new StringSelection(toClipBoardText);
@@ -451,11 +436,9 @@ public class Start extends javax.swing.JFrame {
     private javax.swing.JButton CopyManualID;
     private javax.swing.JButton generate;
     private javax.swing.JLabel githubLabel;
-    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
@@ -464,6 +447,7 @@ public class Start extends javax.swing.JFrame {
     private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JTextField manualId;
     private javax.swing.JTextField newId;
+    private javax.swing.JRadioButton onlyNumericID;
     private javax.swing.JTextArea panelCurrent;
     private javax.swing.JButton saveUnique;
     private javax.swing.JLabel twitterLabel;

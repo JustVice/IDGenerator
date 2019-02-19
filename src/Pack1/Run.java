@@ -29,12 +29,13 @@ public class Run {
      *
      * @return
      */
-    public String generateID() {
+    public String generateID(boolean onlyNumbersID) {
         String str = "";
-        int n = 0;
-        int random = 0;
-        random = (int) (Math.random() * 10000);
-        str = "" + random + randomLetter() + (int) (Math.random() * 1000);
+        if (!onlyNumbersID) {
+            str = "" + ((int)(Math.random() * 10000)) + randomLetter() + (int) (Math.random() * 1000);
+        } else {
+            str = "" + ((int)(Math.random() * 10000)) + ((int) (Math.random() * 10000));
+        }
         System.out.println("Random generated: " + str);
         return str;
     }
@@ -52,5 +53,5 @@ public class Run {
         result = alfabeto[randomLetterIndex];
         return result;
     }
-   
+
 }
