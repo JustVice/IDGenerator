@@ -7,7 +7,7 @@ public class Run {
     public void RUN() {
         Static.data.LoadOldData();
         Static.data.LoadData();
-        currentIDs();
+//        currentIDs();
         Start start = new Start();
     }
 
@@ -39,7 +39,7 @@ public class Run {
         } else {
             str = "" + ((int)(Math.random() * 10000)) + ((int) (Math.random() * 10000));
         }
-        System.out.println("Random generated: " + str);
+//        System.out.println("Random generated: " + str);
         return str;
     }
 
