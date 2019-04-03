@@ -6,7 +6,7 @@ import java.awt.Toolkit;
 
 public class Static {
 
-    public static String version = "v1.6", title = "ID Generator";
+    public static String version = "v1.7", title = "ID Generator";
     public static Run run = new Run();
     public static Data data = new Data();
     public static byte n = 0;
