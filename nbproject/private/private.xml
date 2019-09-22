@@ -3,10 +3,10 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/E:/Programas/Github_repos/IDGenerator/src/Pack1/Start.java</file>
-            <file>file:/E:/Programas/Github_repos/IDGenerator/src/Pack1/Data.java</file>
-            <file>file:/E:/Programas/Github_repos/IDGenerator/src/Pack1/Prefix.java</file>
-            <file>file:/E:/Programas/Github_repos/IDGenerator/src/Pack1/UserData.java</file>
+            <file>file:/E:/Programas/Github_repos/IDGenerator/src/Logic/Start.java</file>
+            <file>file:/E:/Programas/Github_repos/IDGenerator/src/Logic/Data.java</file>
+            <file>file:/E:/Programas/Github_repos/IDGenerator/src/Objects/ID.java</file>
+            <file>file:/E:/Programas/Github_repos/IDGenerator/src/Logic/Run.java</file>
         </group>
     </open-files>
 </project-private>
