@@ -1,5 +1,7 @@
-package Pack1;
+package Logic;
 
+import Objects.Prefix;
+import Objects.ID;
 import java.io.Serializable;
 import java.util.LinkedList;
 

@@ -58,25 +58,25 @@
                       <EmptySpace min="32" pref="32" max="-2" attributes="0"/>
                       <Component id="jLabel6_status_main" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="196" pref="196" max="-2" attributes="0"/>
-                      <Component id="versionLaber" min="-2" max="-2" attributes="0"/>
+                      <Component id="jLabel_versionLabel" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <Group type="102" attributes="0">
                       <EmptySpace min="16" pref="16" max="-2" attributes="0"/>
-                      <Component id="generate" min="-2" pref="463" max="-2" attributes="0"/>
+                      <Component id="jButton_generateNewID" min="-2" pref="463" max="-2" attributes="0"/>
                   </Group>
                   <Group type="102" attributes="0">
                       <EmptySpace min="16" pref="16" max="-2" attributes="0"/>
-                      <Component id="CopyCPUID" min="-2" pref="308" max="-2" attributes="0"/>
+                      <Component id="jButton_copyCreatedIdIntoClipboard" min="-2" pref="308" max="-2" attributes="0"/>
                       <EmptySpace min="6" pref="6" max="-2" attributes="0"/>
-                      <Component id="onlyNumericID" min="-2" max="-2" attributes="0"/>
+                      <Component id="jRadioButton_generateIdWithOnlyNumbers" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <Group type="102" attributes="0">
                       <EmptySpace min="16" pref="16" max="-2" attributes="0"/>
                       <Component id="jLabel6" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="10" pref="10" max="-2" attributes="0"/>
-                      <Component id="jComboBox1_id_lenght" min="-2" pref="260" max="-2" attributes="0"/>
+                      <Component id="jComboBox1_idLenght" min="-2" pref="260" max="-2" attributes="0"/>
                       <EmptySpace min="8" pref="8" max="-2" attributes="0"/>
-                      <Component id="jRadioButton1_dash" min="-2" max="-2" attributes="0"/>
+                      <Component id="jRadioButton1_addDashIntoId" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <Group type="102" attributes="0">
                       <EmptySpace min="16" pref="16" max="-2" attributes="0"/>
@@ -86,7 +86,7 @@
                   </Group>
                   <Group type="102" attributes="0">
                       <EmptySpace min="16" pref="16" max="-2" attributes="0"/>
-                      <Component id="newId" min="-2" pref="454" max="-2" attributes="0"/>
+                      <Component id="jtextField_newId" min="-2" pref="454" max="-2" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -102,15 +102,15 @@
                           </Group>
                           <Group type="102" attributes="0">
                               <EmptySpace min="13" pref="13" max="-2" attributes="0"/>
-                              <Component id="versionLaber" min="-2" max="-2" attributes="0"/>
+                              <Component id="jLabel_versionLabel" min="-2" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                       <EmptySpace min="18" pref="18" max="-2" attributes="0"/>
-                      <Component id="generate" min="-2" max="-2" attributes="0"/>
+                      <Component id="jButton_generateNewID" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="11" pref="11" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="CopyCPUID" min="-2" max="-2" attributes="0"/>
-                          <Component id="onlyNumericID" min="-2" max="-2" attributes="0"/>
+                          <Component id="jButton_copyCreatedIdIntoClipboard" min="-2" max="-2" attributes="0"/>
+                          <Component id="jRadioButton_generateIdWithOnlyNumbers" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace min="5" pref="5" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
@@ -120,9 +120,9 @@
                           </Group>
                           <Group type="102" attributes="0">
                               <EmptySpace min="6" pref="6" max="-2" attributes="0"/>
-                              <Component id="jComboBox1_id_lenght" min="-2" max="-2" attributes="0"/>
+                              <Component id="jComboBox1_idLenght" min="-2" max="-2" attributes="0"/>
                           </Group>
-                          <Component id="jRadioButton1_dash" min="-2" max="-2" attributes="0"/>
+                          <Component id="jRadioButton1_addDashIntoId" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace min="10" pref="10" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
@@ -133,20 +133,20 @@
                           </Group>
                       </Group>
                       <EmptySpace min="8" pref="8" max="-2" attributes="0"/>
-                      <Component id="newId" min="-2" max="-2" attributes="0"/>
+                      <Component id="jtextField_newId" min="-2" max="-2" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
           </Layout>
           <SubComponents>
-            <Component class="javax.swing.JTextField" name="newId">
+            <Component class="javax.swing.JTextField" name="jtextField_newId">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Tahoma" size="24" style="0"/>
                 </Property>
               </Properties>
             </Component>
-            <Component class="javax.swing.JButton" name="generate">
+            <Component class="javax.swing.JButton" name="jButton_generateNewID">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Tahoma" size="18" style="1"/>
@@ -154,7 +154,7 @@
                 <Property name="text" type="java.lang.String" value="Generate new and copy to clipboard"/>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="generateActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton_generateNewIDActionPerformed"/>
               </Events>
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel1">
@@ -165,15 +165,15 @@
                 <Property name="text" type="java.lang.String" value="IDGenerator"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JLabel" name="versionLaber">
+            <Component class="javax.swing.JLabel" name="jLabel_versionLabel">
               <Properties>
                 <Property name="text" type="java.lang.String" value="version"/>
               </Properties>
               <Events>
-                <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="versionLaberMouseClicked"/>
+                <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jLabel_versionLabelMouseClicked"/>
               </Events>
             </Component>
-            <Component class="javax.swing.JButton" name="CopyCPUID">
+            <Component class="javax.swing.JButton" name="jButton_copyCreatedIdIntoClipboard">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Tahoma" size="14" style="1"/>
@@ -181,10 +181,10 @@
                 <Property name="text" type="java.lang.String" value="Copy to clipboard"/>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="CopyCPUIDActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton_copyCreatedIdIntoClipboardActionPerformed"/>
               </Events>
             </Component>
-            <Component class="javax.swing.JRadioButton" name="onlyNumericID">
+            <Component class="javax.swing.JRadioButton" name="jRadioButton_generateIdWithOnlyNumbers">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Generate only numeric IDs"/>
               </Properties>
@@ -215,7 +215,7 @@
                 <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
               </AuxValues>
             </Component>
-            <Component class="javax.swing.JComboBox" name="jComboBox1_id_lenght">
+            <Component class="javax.swing.JComboBox" name="jComboBox1_idLenght">
               <Properties>
                 <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
                   <StringArray count="3">
@@ -234,7 +234,7 @@
                 <Property name="text" type="java.lang.String" value="ID size:"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JRadioButton" name="jRadioButton1_dash">
+            <Component class="javax.swing.JRadioButton" name="jRadioButton1_addDashIntoId">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Dash between blocks"/>
               </Properties>
@@ -385,7 +385,7 @@
 
               <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
               <SubComponents>
-                <Component class="javax.swing.JTextArea" name="panelCurrent">
+                <Component class="javax.swing.JTextArea" name="panelExistingIds">
                   <Properties>
                     <Property name="columns" type="int" value="20"/>
                     <Property name="rows" type="int" value="5"/>
@@ -411,7 +411,7 @@
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" alignment="0" attributes="0">
                               <EmptySpace max="-2" attributes="0"/>
-                              <Component id="manualId" max="32767" attributes="0"/>
+                              <Component id="jtextField_manualId" max="32767" attributes="0"/>
                           </Group>
                           <Group type="102" attributes="0">
                               <Group type="103" groupAlignment="0" attributes="0">
@@ -421,7 +421,7 @@
                                   </Group>
                                   <Group type="102" alignment="0" attributes="0">
                                       <EmptySpace min="-2" pref="59" max="-2" attributes="0"/>
-                                      <Component id="saveUnique" min="-2" max="-2" attributes="0"/>
+                                      <Component id="jButton_saveManualId" min="-2" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
                               <EmptySpace min="0" pref="49" max="32767" attributes="0"/>
@@ -431,7 +431,7 @@
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace min="-2" pref="167" max="-2" attributes="0"/>
-                      <Component id="CopyManualID" min="-2" max="-2" attributes="0"/>
+                      <Component id="jButton_copyManualIdIntoClipBoard" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="32767" attributes="0"/>
                   </Group>
               </Group>
@@ -442,11 +442,11 @@
                       <EmptySpace pref="44" max="32767" attributes="0"/>
                       <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
-                      <Component id="manualId" min="-2" max="-2" attributes="0"/>
+                      <Component id="jtextField_manualId" min="-2" max="-2" attributes="0"/>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                      <Component id="saveUnique" min="-2" max="-2" attributes="0"/>
+                      <Component id="jButton_saveManualId" min="-2" max="-2" attributes="0"/>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                      <Component id="CopyManualID" min="-2" max="-2" attributes="0"/>
+                      <Component id="jButton_copyManualIdIntoClipBoard" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="43" max="-2" attributes="0"/>
                   </Group>
               </Group>
@@ -461,17 +461,17 @@
                 <Property name="text" type="java.lang.String" value="Manual ID"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JTextField" name="manualId">
+            <Component class="javax.swing.JTextField" name="jtextField_manualId">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Tahoma" size="14" style="0"/>
                 </Property>
               </Properties>
               <Events>
-                <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="manualIdKeyTyped"/>
+                <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="jtextField_manualIdKeyTyped"/>
               </Events>
             </Component>
-            <Component class="javax.swing.JButton" name="saveUnique">
+            <Component class="javax.swing.JButton" name="jButton_saveManualId">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Tahoma" size="18" style="1"/>
@@ -479,10 +479,10 @@
                 <Property name="text" type="java.lang.String" value="Save manual ID and copy to clipboard"/>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="saveUniqueActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton_saveManualIdActionPerformed"/>
               </Events>
             </Component>
-            <Component class="javax.swing.JButton" name="CopyManualID">
+            <Component class="javax.swing.JButton" name="jButton_copyManualIdIntoClipBoard">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Tahoma" size="14" style="1"/>
@@ -490,7 +490,7 @@
                 <Property name="text" type="java.lang.String" value="Copy to clipboard"/>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="CopyManualIDActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton_copyManualIdIntoClipBoardActionPerformed"/>
               </Events>
             </Component>
           </SubComponents>
