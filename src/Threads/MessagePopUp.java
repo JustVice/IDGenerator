@@ -1,23 +1,40 @@
 package Threads;
 
-public class FrameTh extends javax.swing.JFrame {
+public class MessagePopUp extends javax.swing.JFrame implements Runnable {
 
-    public FrameTh() {
-        setUndecorated(true);
+    public MessagePopUp(String message) {
+        this.setLocationRelativeTo(null);
+        this.setUndecorated(true);
+
         initComponents();
-        setLocationRelativeTo(null);
+        this.jLabel_message.setText(message);
+        Thread thread = new Thread(this);
+        thread.start();
+    }
+
+    @Override
+    public void run() {
+        try {
+
+            this.setVisible(true);
+            Thread.sleep(720);
+            this.dispose();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
     }
 
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel1 = new javax.swing.JLabel();
+        jLabel_message = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
-        jLabel1.setText("DONE");
+        jLabel_message.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        jLabel_message.setText("Copied to clipboard!");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -25,14 +42,14 @@ public class FrameTh extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel1)
+                .addComponent(jLabel_message)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel1)
+                .addComponent(jLabel_message)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -41,6 +58,6 @@ public class FrameTh extends javax.swing.JFrame {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel_message;
     // End of variables declaration//GEN-END:variables
 }

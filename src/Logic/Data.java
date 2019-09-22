@@ -66,7 +66,7 @@ public class Data {
     }
 
     private void createDataFolderIfItDoesntExist(String folderName) {
-        String path = "\\" + folderName;
+        String path = folderName;
         File dataFolderPath = new File(path);
         if (!dataFolderPath.exists()) {
             boolean created = dataFolderPath.mkdir();
@@ -87,8 +87,16 @@ public class Data {
         updateInfo();
     }
 
-    public int getUserDataPrefixesSize() {
+    public int getUserDataIdsSize() {
         return this.userData.getID_list().size();
+    }
+    
+    public int getUserDataPrefixesSize() {
+        return this.userData.getPrefix_list().size();
+    }
+
+    public void saveIdIntoUserData(String idGenerated) {
+        this.userData.getID_list().add(new Objects.ID(idGenerated));
     }
 
 }

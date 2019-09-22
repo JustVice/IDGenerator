@@ -1,12 +1,9 @@
 package Logic;
 
 import Objects.Prefix;
-import Objects.ID;
 import java.awt.Color;
 import java.awt.Desktop;
 import java.awt.Frame;
-import java.awt.datatransfer.Clipboard;
-import java.awt.datatransfer.StringSelection;
 import java.awt.event.KeyEvent;
 import java.io.IOException;
 import java.net.URI;
@@ -19,7 +16,6 @@ import javax.swing.JOptionPane;
 public class Start extends javax.swing.JFrame {
 
     private final DefaultListModel<Prefix> prefixes_model = new DefaultListModel<>();
-    private final Clipboard clip = getToolkit().getSystemClipboard();
 
     public Start() {
         initComponents();
@@ -28,24 +24,28 @@ public class Start extends javax.swing.JFrame {
 
     //Settings loaded when this frame is called.
     private void settings() {
-        panelExistingIdsSettings();
-        loadPrefixesFromUserDataAndSetIntoJList();
+        panelExistingIdsAndPrefixesSettings();
+        loadPrefixesFromUserDataAndSetIntoJListAndComboBox();
         userInterfaceButtonsLabelsAndRadioButtonsSettings();
         frameSettingsAndDisplay();
     }
 
-    private void panelExistingIdsSettings() {
-        panelExistingIds.setEditable(false);
-        panelExistingIds.setCaretPosition(0);
-        panelExistingIds.setLineWrap(true);
-        panelExistingIds.setWrapStyleWord(true);
+    private void panelExistingIdsAndPrefixesSettings() {
+        jTextArea_existingIdsAndPrefixes.setEditable(false);
+        jTextArea_existingIdsAndPrefixes.setCaretPosition(0);
+        jTextArea_existingIdsAndPrefixes.setLineWrap(true);
+        jTextArea_existingIdsAndPrefixes.setWrapStyleWord(true);
+        jTextArea_existingIdsAndPrefixes.setCaretPosition(0);
     }
 
-    private void loadPrefixesFromUserDataAndSetIntoJList() {
+    private void loadPrefixesFromUserDataAndSetIntoJListAndComboBox() {
         this.prefixes_model.clear();
+        this.jComboBox1_prefixes.removeAllItems();
         if (!Memory.data.getUserData().getPrefix_list().isEmpty()) {
+            jList1_prefixes.setEnabled(true);
             for (Prefix item : Memory.data.getUserData().getPrefix_list()) {
                 this.prefixes_model.add(0, item);
+                this.jComboBox1_prefixes.addItem(item.toString());
             }
             jList1_prefixes.setModel(prefixes_model);
         } else {
@@ -56,13 +56,11 @@ public class Start extends javax.swing.JFrame {
     private void userInterfaceButtonsLabelsAndRadioButtonsSettings() {
         jRadioButton1_add_prefix.setSelected(false);
         jComboBox1_prefixes.setVisible(false);
-        jLabel_versionLabel.setVisible(false);
-        jRadioButton1_addDashIntoId.setSelected(true);
         jButton1_delete_prefix.setEnabled(false);
         jtextField_newId.setEditable(false);
         jButton_copyCreatedIdIntoClipboard.setEnabled(false);
         jButton_copyManualIdIntoClipBoard.setEnabled(false);
-        label_status_main_text("", "black");
+        labelStatus("", "black");
         jLabel_versionLabel.setText(Memory.version);
         setTitle(Memory.title);
         setIconImage(Memory.getIconImage());
@@ -91,7 +89,6 @@ public class Start extends javax.swing.JFrame {
         jComboBox1_prefixes = new javax.swing.JComboBox<>();
         jComboBox1_idLenght = new javax.swing.JComboBox<>();
         jLabel6 = new javax.swing.JLabel();
-        jRadioButton1_addDashIntoId = new javax.swing.JRadioButton();
         jPanel5 = new javax.swing.JPanel();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
@@ -102,7 +99,7 @@ public class Start extends javax.swing.JFrame {
         jButton1_delete_prefix = new javax.swing.JButton();
         jPanel3 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        panelExistingIds = new javax.swing.JTextArea();
+        jTextArea_existingIdsAndPrefixes = new javax.swing.JTextArea();
         jPanel2 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         jtextField_manualId = new javax.swing.JTextField();
@@ -167,78 +164,65 @@ public class Start extends javax.swing.JFrame {
 
         jLabel6.setText("ID size:");
 
-        jRadioButton1_addDashIntoId.setText("Dash between blocks");
-
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(10, 10, 10)
-                .addComponent(jLabel1)
-                .addGap(32, 32, 32)
-                .addComponent(jLabel6_status_main)
-                .addGap(196, 196, 196)
-                .addComponent(jLabel_versionLabel))
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(16, 16, 16)
-                .addComponent(jButton_generateNewID, javax.swing.GroupLayout.PREFERRED_SIZE, 463, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(16, 16, 16)
-                .addComponent(jButton_copyCreatedIdIntoClipboard, javax.swing.GroupLayout.PREFERRED_SIZE, 308, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(6, 6, 6)
-                .addComponent(jRadioButton_generateIdWithOnlyNumbers))
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(16, 16, 16)
-                .addComponent(jLabel6)
-                .addGap(10, 10, 10)
-                .addComponent(jComboBox1_idLenght, javax.swing.GroupLayout.PREFERRED_SIZE, 260, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(8, 8, 8)
-                .addComponent(jRadioButton1_addDashIntoId))
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(16, 16, 16)
-                .addComponent(jRadioButton1_add_prefix)
-                .addGap(19, 19, 19)
-                .addComponent(jComboBox1_prefixes, javax.swing.GroupLayout.PREFERRED_SIZE, 215, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(16, 16, 16)
-                .addComponent(jtextField_newId, javax.swing.GroupLayout.PREFERRED_SIZE, 454, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jButton_generateNewID, javax.swing.GroupLayout.PREFERRED_SIZE, 463, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(jButton_copyCreatedIdIntoClipboard, javax.swing.GroupLayout.PREFERRED_SIZE, 308, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(6, 6, 6)
+                        .addComponent(jRadioButton_generateIdWithOnlyNumbers))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(jLabel6)
+                        .addGap(10, 10, 10)
+                        .addComponent(jComboBox1_idLenght, javax.swing.GroupLayout.PREFERRED_SIZE, 260, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(jRadioButton1_add_prefix)
+                        .addGap(19, 19, 19)
+                        .addComponent(jComboBox1_prefixes, javax.swing.GroupLayout.PREFERRED_SIZE, 215, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jtextField_newId, javax.swing.GroupLayout.PREFERRED_SIZE, 454, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel6_status_main)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(jLabel1)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLabel_versionLabel)))
+                .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(11, 11, 11)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addContainerGap()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(10, 10, 10)
-                        .addComponent(jLabel6_status_main))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(13, 13, 13)
-                        .addComponent(jLabel_versionLabel)))
-                .addGap(18, 18, 18)
+                    .addComponent(jLabel_versionLabel))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jButton_generateNewID)
                 .addGap(11, 11, 11)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jButton_copyCreatedIdIntoClipboard)
                     .addComponent(jRadioButton_generateIdWithOnlyNumbers))
-                .addGap(5, 5, 5)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(9, 9, 9)
+                        .addGap(14, 14, 14)
                         .addComponent(jLabel6))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(6, 6, 6)
-                        .addComponent(jComboBox1_idLenght, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jRadioButton1_addDashIntoId))
+                        .addGap(11, 11, 11)
+                        .addComponent(jComboBox1_idLenght, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(10, 10, 10)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jRadioButton1_add_prefix)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(4, 4, 4)
                         .addComponent(jComboBox1_prefixes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(8, 8, 8)
-                .addComponent(jtextField_newId, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addComponent(jtextField_newId, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jLabel6_status_main)
+                .addContainerGap(145, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("Main", jPanel1);
@@ -311,9 +295,9 @@ public class Start extends javax.swing.JFrame {
 
         jTabbedPane1.addTab("Prefixes", jPanel5);
 
-        panelExistingIds.setColumns(20);
-        panelExistingIds.setRows(5);
-        jScrollPane1.setViewportView(panelExistingIds);
+        jTextArea_existingIdsAndPrefixes.setColumns(20);
+        jTextArea_existingIdsAndPrefixes.setRows(5);
+        jScrollPane1.setViewportView(jTextArea_existingIdsAndPrefixes);
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
@@ -321,14 +305,14 @@ public class Start extends javax.swing.JFrame {
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 471, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 597, Short.MAX_VALUE)
                 .addContainerGap())
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 223, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 387, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -377,7 +361,7 @@ public class Start extends javax.swing.JFrame {
                             .addGroup(jPanel2Layout.createSequentialGroup()
                                 .addGap(59, 59, 59)
                                 .addComponent(jButton_saveManualId)))
-                        .addGap(0, 49, Short.MAX_VALUE)))
+                        .addGap(0, 175, Short.MAX_VALUE)))
                 .addContainerGap())
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGap(167, 167, 167)
@@ -387,7 +371,7 @@ public class Start extends javax.swing.JFrame {
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addContainerGap(44, Short.MAX_VALUE)
+                .addContainerGap(208, Short.MAX_VALUE)
                 .addComponent(jLabel2)
                 .addGap(28, 28, 28)
                 .addComponent(jtextField_manualId, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -472,11 +456,11 @@ public class Start extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 496, Short.MAX_VALUE)
+            .addComponent(jTabbedPane1)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jTabbedPane1)
+            .addComponent(jTabbedPane1, javax.swing.GroupLayout.Alignment.TRAILING)
         );
 
         pack();
@@ -484,15 +468,15 @@ public class Start extends javax.swing.JFrame {
 
     private void jButton_saveManualIdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_saveManualIdActionPerformed
         if (idNotRepeatedInsideDataFile(this.jtextField_manualId.getText())
-                && isThereAnIdTypedAtManualIdJtextField()){
+                && isThereAnIdTypedAtManualIdJtextField()) {
             saveManualIdInsideDataFile();
         }
     }//GEN-LAST:event_jButton_saveManualIdActionPerformed
 
     private boolean idNotRepeatedInsideDataFile(String idToManage) {
-        for (int i = 0; i < Memory.data.getUserDataPrefixesSize(); i++) {
+        for (int i = 0; i < Memory.data.getUserDataIdsSize(); i++) {
             if (idToManage.equals(Memory.data.getUserData().getID_list().get(i).getIDString())) {
-                Run.message("ID " + jtextField_manualId.getText() + " already exists.", "ID repeated", 0);
+                Run.message("ID " + idToManage + " already exists.", "ID repeated", 0);
                 return false;
             }
         }
@@ -508,111 +492,137 @@ public class Start extends javax.swing.JFrame {
     }
 
     private void saveManualIdInsideDataFile() {
-        Memory.data.getUserData().getID_list().add(new ID(jtextField_manualId.getText()));
+        Memory.data.saveIdIntoUserData(this.jtextField_manualId.getText());
         Memory.data.updateInfo();
-        clipboardManual();
-        Memory.runDoneMessage();
+        Run.copyToClipBoard(this.jtextField_manualId.getText());
         jButton_copyManualIdIntoClipBoard.setEnabled(true);
+        Run.runDoneMessage("Done!");
     }
 
     private void jButton_generateNewIDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_generateNewIDActionPerformed
-        generate_new_id_new_code();
+        String idGenerated = "";
+        idGenerated = setPrefixIfEnabled();
+        idGenerated = Memory.run.generateID(this.jRadioButton_generateIdWithOnlyNumbers.isSelected());
+        idGenerated = addDashsAndMoreLengthToIdGenerated(idGenerated);
+        if (idNotRepeatedInsideDataFile(idGenerated)) {
+            saveIdGeneratedIntoDataFile(idGenerated);
+            userInterfaceChangesWhenNewIdGeneratedAndCopyToClipBoard(idGenerated);
+        }
     }//GEN-LAST:event_jButton_generateNewIDActionPerformed
 
-    private void generate_new_id_new_code() {
-        String new_id = "";
-        if (jRadioButton1_add_prefix.isSelected()) {
-            new_id += control_try_catch_give_prefix();
+    private String setPrefixIfEnabled() {
+        if (this.jRadioButton1_add_prefix.isSelected()) {
+            return this.jComboBox1_prefixes.getSelectedItem().toString();
+        } else {
+            return "";
         }
-        new_id += Memory.run.generateID(jRadioButton_generateIdWithOnlyNumbers.isSelected());
-        String combo_box_option = jComboBox1_idLenght.getSelectedItem().toString();
-        //System.out.println(combo_box_option);
-        switch (combo_box_option) {
+    }
+
+    private String addDashsAndMoreLengthToIdGenerated(String temporalId) {
+        switch (this.jComboBox1_idLenght.getSelectedItem().toString()) {
             case "1 block":
-                break;
+                return temporalId;
             case "2 blocks":
-                new_id += add_dash_to_blocks() + Memory.run.generateID(jRadioButton_generateIdWithOnlyNumbers.isSelected());
-                break;
+                temporalId += "-" + Memory.run.generateID(jRadioButton_generateIdWithOnlyNumbers.isSelected());
+                return temporalId;
             case "3 blocks":
-                new_id += add_dash_to_blocks() + Memory.run.generateID(jRadioButton_generateIdWithOnlyNumbers.isSelected());
-                new_id += add_dash_to_blocks() + Memory.run.generateID(jRadioButton_generateIdWithOnlyNumbers.isSelected());
-                break;
+                temporalId += "-" + Memory.run.generateID(jRadioButton_generateIdWithOnlyNumbers.isSelected());
+                temporalId += "-" + Memory.run.generateID(jRadioButton_generateIdWithOnlyNumbers.isSelected());
+                return temporalId;
             default:
                 throw new AssertionError();
         }
-        if (!is_the_id_repeated(new_id)) {
-            Memory.data.getUserData().getID_list().add(new ID(new_id));
-            System.out.println("List size: " + Memory.data.getUserData().getID_list().size());
-            jtextField_newId.setText(new_id);
-            Memory.data.updateInfo();
-            clipboardCPU();
-            jButton_copyCreatedIdIntoClipboard.setEnabled(true);
-            label_status_main_text("ID saved and copied to clipboard", "green");
-        } else {
-            Memory.run.message("The ID generated is repeated!!! That's incredible! ... *cough*.. please try again.", "REPEATED ID!!!", 1);
-        }
     }
 
-    private String control_try_catch_give_prefix() {
-        try {
-            return jComboBox1_prefixes.getSelectedItem().toString();
-        } catch (Exception e) {
-            return "";
-        }
+    private void userInterfaceChangesWhenNewIdGeneratedAndCopyToClipBoard(String idGenerated) {
+        this.jtextField_newId.setText(idGenerated);
+        this.jButton_copyCreatedIdIntoClipboard.setEnabled(true);
+        Run.copyToClipBoard(idGenerated);
+        labelStatus("ID saved and copied to clipboard", "green");
     }
 
-    private String add_dash_to_blocks() {
-        if (jRadioButton1_addDashIntoId.isSelected()) {
-            return "-";
-        } else {
-            return "";
-        }
-    }
-
-    private boolean is_the_id_repeated(String new_id) {
-        for (ID item : Memory.data.getUserData().getID_list()) {
-            if (item.toString().equals(new_id)) {
-                return true;
-            }
-        }
-        return false;
+    private void saveIdGeneratedIntoDataFile(String idGenerated) {
+        Memory.data.saveIdIntoUserData(idGenerated);
+        Memory.data.updateInfo();
     }
 
     private void jTabbedPane1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTabbedPane1MouseClicked
-        String ids = "";
-        for (int i = 0; i < Memory.data.getUserData().getID_list().size(); i++) {
-            ids += Memory.data.getUserData().getID_list().get(i).toString() + " , ";
-        }
-        String prefixes = "";
-        for (int i = 0; i < Memory.data.getUserData().getPrefix_list().size(); i++) {
-            prefixes += Memory.data.getUserData().getPrefix_list().get(i).toString() + " , ";
-        }
-        if (ids.equals("")) {
-            panelExistingIds.setText("No IDs stored");
-        } else {
-            panelExistingIds.setText("Number of ID's created: " + Memory.data.getUserData().getID_list().size() + "\n" + "ID's created (separated by commas):\n\n" + ids);
-            panelExistingIds.setCaretPosition(0);
-        }
-        if (prefixes.equals("")) {
-            panelExistingIds.append("\n\nNo prefixes stored");
-        } else {
-            panelExistingIds.append("\n\nPrefixes stored: " + Memory.data.getUserData().getPrefix_list().size() + "\n" + "Prefixes stored (separated by commas):\n\n" + prefixes);
-        }
-        label_status_main_text("", "red");
+        String idsStored = loadIdsToShowOnStoredIdsPanel();
+        String prefixesStored = loadPrefixesToShowOnStoredIdsPanel();
+        //Refactor variables with organized info
+        idsStored = organizeIdsStoredInfoForjTextPanel(idsStored);
+        prefixesStored = organizePrefixesStoredInfoForjTextPanel(idsStored);
+        setTextInsideJTextPanelToShowStoredIdsAndPrefixes(idsStored, prefixesStored);
     }//GEN-LAST:event_jTabbedPane1MouseClicked
+
+    private String loadIdsToShowOnStoredIdsPanel() {
+        String idsStored = "";
+        if (Memory.data.getUserDataIdsSize() > 0) {
+            for (int i = 0; i < Memory.data.getUserDataIdsSize(); i++) {
+                idsStored += Memory.data.getUserData().getID_list().get(i).toString() + " , ";
+            }
+            return idsStored;
+        } else {
+            return "No IDs stored.";
+        }
+    }
+
+    private String loadPrefixesToShowOnStoredIdsPanel() {
+        String prefixesStored = "";
+        if (Memory.data.getUserDataPrefixesSize() > 0) {
+            for (int i = 0; i < Memory.data.getUserDataPrefixesSize(); i++) {
+                prefixesStored += Memory.data.getUserData().getPrefix_list().get(i).toString() + " , ";
+            }
+            return prefixesStored;
+        } else {
+            return "No prefixes stored.";
+        }
+    }
+
+    private String organizeIdsStoredInfoForjTextPanel(String idsStored) {
+        String idsStoredText = "";
+        if (!idsStored.equals("No IDs stored.")) {
+            idsStoredText += "Number of IDs created: " + Memory.data.getUserDataIdsSize();
+            idsStoredText += "\n";
+            idsStoredText += "IDs created:\n\n " + idsStored;
+            return idsStoredText;
+        } else {
+            return idsStored + "\n\n";
+        }
+    }
+
+    private String organizePrefixesStoredInfoForjTextPanel(String prefixesStored) {
+        String prefixesStoredText = "";
+        if (!prefixesStored.equals("No prefixes stored.")) {
+            prefixesStoredText += "Number of IDs created: " + Memory.data.getUserDataIdsSize();
+            prefixesStoredText += "\n";
+            prefixesStoredText += "IDs created:\n\n " + prefixesStored;
+            return prefixesStoredText;
+        } else {
+            return prefixesStored + "\n\n";
+        }
+    }
+
+    private void setTextInsideJTextPanelToShowStoredIdsAndPrefixes(String idsStored, String prefixesStored) {
+        String textToSetInsidejTextPanelToShowStoredIdsAndPrefixes = "";
+        textToSetInsidejTextPanelToShowStoredIdsAndPrefixes += idsStored;
+        textToSetInsidejTextPanelToShowStoredIdsAndPrefixes += prefixesStored;
+        this.jTextArea_existingIdsAndPrefixes.setText(textToSetInsidejTextPanelToShowStoredIdsAndPrefixes);
+    }
 
     private void jButton_copyCreatedIdIntoClipboardActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_copyCreatedIdIntoClipboardActionPerformed
         if (jButton_copyCreatedIdIntoClipboard.isEnabled()) {
-            clipboardCPU();
-            Memory.runDoneMessage();
-            label_status_main_text("", "black");
+            Run.copyToClipBoard(this.jtextField_newId.getText());
+            Run.runDoneMessage("Copied to clipboard!");
+            labelStatus("", "green");
         }
     }//GEN-LAST:event_jButton_copyCreatedIdIntoClipboardActionPerformed
 
     private void jButton_copyManualIdIntoClipBoardActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_copyManualIdIntoClipBoardActionPerformed
         if (jButton_copyManualIdIntoClipBoard.isEnabled()) {
-            clipboardManual();
-            Memory.runDoneMessage();
+            Run.copyToClipBoard(this.jtextField_manualId.getText());
+            Run.runDoneMessage("Copied to clipboard!");
+            labelStatus("", "green");
         }
     }//GEN-LAST:event_jButton_copyManualIdIntoClipBoardActionPerformed
 
@@ -621,7 +631,7 @@ public class Start extends javax.swing.JFrame {
     }//GEN-LAST:event_jtextField_manualIdKeyTyped
 
     private void twitterLabelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_twitterLabelMouseClicked
-        openLink("https://twitter.com/JustVice1");
+        openLink("https://twitter.com/_justvice_");
     }//GEN-LAST:event_twitterLabelMouseClicked
 
     private void githubLabelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_githubLabelMouseClicked
@@ -629,36 +639,39 @@ public class Start extends javax.swing.JFrame {
     }//GEN-LAST:event_githubLabelMouseClicked
 
     private void AllLinksLabelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_AllLinksLabelMouseClicked
-        openLink("https://justvice.wixsite.com/info");
+        openLink("https://justvice.github.io/links/");
     }//GEN-LAST:event_AllLinksLabelMouseClicked
 
     private void jButton1_add_new_prefixActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1_add_new_prefixActionPerformed
-        create_new_prefix();
+        addPrefixActionPerformed();
     }//GEN-LAST:event_jButton1_add_new_prefixActionPerformed
-    private void create_new_prefix() {
-        if (no_existent_prefix(jTextField1_new_prefix.getText())) {
-            if (!jTextField1_new_prefix.getText().equals("")) {
-                Prefix temp_prefix = new Prefix(jTextField1_new_prefix.getText());
-                prefixes_model.add(0, temp_prefix);
-                jTextField1_new_prefix.setText("");
-                set_model_to_jlist();
-                enable_disable_jlist();
-                saveNewPrefix(temp_prefix);
-            } else {
-                System.out.println("Empty name");
-            }
-        } else {
-            Memory.run.message("Prefix " + jTextField1_new_prefix.getText() + " already exists.", "Exitent prefix", 1);
+
+    private void addPrefixActionPerformed() {
+        String newPrefix = this.jTextField1_new_prefix.getText();
+        if (isPrefixNotRepeatedInsideDataFile(newPrefix)) {
+            savePrefixIntoDataFile(newPrefix);
+            uiChangesWhenANewPrefixIsSaved();
         }
     }
 
-    private boolean no_existent_prefix(String item_name) {
-        for (Prefix temp_prefix : Memory.data.getUserData().getPrefix_list()) {
-            if (temp_prefix.getPrefix().equals(item_name)) {
+    private boolean isPrefixNotRepeatedInsideDataFile(String newPrefix) {
+        for (int i = 0; i < Memory.data.getUserDataPrefixesSize(); i++) {
+            if (newPrefix.equals(Memory.data.getUserData().getPrefix_list().get(i).getPrefix())) {
+                Run.message("Prefix " + newPrefix + " already exists.", "ID repeated", 0);
                 return false;
             }
         }
         return true;
+    }
+
+    private void savePrefixIntoDataFile(String newPrefix) {
+        Memory.data.getUserData().getPrefix_list().add(new Prefix(newPrefix));
+        Memory.data.updateInfo();
+    }
+
+    private void uiChangesWhenANewPrefixIsSaved() {
+        jTextField1_new_prefix.setText("");
+        loadPrefixesFromUserDataAndSetIntoJListAndComboBox();
     }
 
     private void jList1_prefixesMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jList1_prefixesMouseReleased
@@ -671,16 +684,22 @@ public class Start extends javax.swing.JFrame {
 
     private void jButton1_delete_prefixActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1_delete_prefixActionPerformed
         try {
-            int SelectedIndex = jList1_prefixes.getSelectedIndex();
-            Prefix temp_prefix = prefixes_model.get(SelectedIndex);
-            prefixes_model.removeElementAt(SelectedIndex);
-            jTextField1_new_prefix.setText("");
-            enable_disable_jlist();
-            jButton1_delete_prefix.setEnabled(false);
-            delete_prefix_from_user_data(temp_prefix);
+            int prefixSelectedItemIndex = jList1_prefixes.getSelectedIndex();
+            Prefix prefixToDelete = prefixes_model.get(prefixSelectedItemIndex);
+            deletePrefixFromDataFileAndSaveInfo(prefixToDelete);
+            loadPrefixesFromUserDataAndSetIntoJListAndComboBox();
         } catch (Exception e) {
         }
     }//GEN-LAST:event_jButton1_delete_prefixActionPerformed
+
+    private void deletePrefixFromDataFileAndSaveInfo(Prefix item) {
+        for (int i = 0; i < Memory.data.getUserData().getPrefix_list().size(); i++) {
+            if (Memory.data.getUserData().getPrefix_list().get(i).getID() == item.getID()) {
+                Memory.data.getUserData().getPrefix_list().remove(i);
+            }
+        }
+        Memory.data.updateInfo();
+    }
 
     private void jRadioButton1_add_prefixActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton1_add_prefixActionPerformed
         if (jRadioButton1_add_prefix.isSelected()) {
@@ -697,46 +716,19 @@ public class Start extends javax.swing.JFrame {
     private void jTextField1_new_prefixKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField1_new_prefixKeyTyped
         char c = evt.getKeyChar();
         if (c == KeyEvent.VK_ENTER) {
-            create_new_prefix();
+            addPrefixActionPerformed();
         }
     }//GEN-LAST:event_jTextField1_new_prefixKeyTyped
 
     private void jLabel_versionLabelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel_versionLabelMouseClicked
         if (Memory.inkiEasterEgg == 2) {
-            JOptionPane.showMessageDialog(panelExistingIds, "Inki wasn't here.", Memory.title, 3);
+            JOptionPane.showMessageDialog(jTextArea_existingIdsAndPrefixes, "Inki wasn't here.", Memory.title, 3);
         } else {
             Memory.inkiEasterEgg++;
         }
     }//GEN-LAST:event_jLabel_versionLabelMouseClicked
 
-    private void saveNewPrefix(Prefix new_item) {
-        Memory.data.getUserData().getPrefix_list().add(new_item);
-        Memory.data.updateInfo();
-    }
-
-    private void delete_prefix_from_user_data(Prefix item) {
-        for (int i = 0; i < Memory.data.getUserData().getPrefix_list().size(); i++) {
-            if (Memory.data.getUserData().getPrefix_list().get(i).getID() == item.getID()) {
-                Memory.data.getUserData().getPrefix_list().remove(i);
-            }
-        }
-        Memory.data.updateInfo();
-    }
-
-    private void enable_disable_jlist() {
-        if (!prefixes_model.isEmpty()) {
-            jList1_prefixes.setEnabled(true);
-        } else {
-            jList1_prefixes.setEnabled(false);
-            jButton1_delete_prefix.setEnabled(false);
-        }
-    }
-
-    private void set_model_to_jlist() {
-        jList1_prefixes.setModel(prefixes_model);
-    }
-
-    private void label_status_main_text(String text, String color) {
+    private void labelStatus(String text, String color) {
         switch (color) {
             case "red":
                 jLabel6_status_main.setForeground(Color.red);
@@ -765,18 +757,6 @@ public class Start extends javax.swing.JFrame {
         }
     }
 
-    private void clipboardCPU() {
-        String toClipBoardText = jtextField_newId.getText();
-        StringSelection stringClip = new StringSelection(toClipBoardText);
-        clip.setContents(stringClip, stringClip);
-    }
-
-    private void clipboardManual() {
-        String toClipBoardText = jtextField_manualId.getText();
-        StringSelection stringClip = new StringSelection(toClipBoardText);
-        clip.setContents(stringClip, stringClip);
-    }
-
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel AllLinksLabel;
     private javax.swing.JLabel githubLabel;
@@ -803,16 +783,15 @@ public class Start extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
-    private javax.swing.JRadioButton jRadioButton1_addDashIntoId;
     private javax.swing.JRadioButton jRadioButton1_add_prefix;
     private javax.swing.JRadioButton jRadioButton_generateIdWithOnlyNumbers;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTabbedPane jTabbedPane1;
+    private javax.swing.JTextArea jTextArea_existingIdsAndPrefixes;
     private javax.swing.JTextField jTextField1_new_prefix;
     private javax.swing.JTextField jtextField_manualId;
     private javax.swing.JTextField jtextField_newId;
-    private javax.swing.JTextArea panelExistingIds;
     private javax.swing.JLabel twitterLabel;
     // End of variables declaration//GEN-END:variables
 }

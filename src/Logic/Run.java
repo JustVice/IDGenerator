@@ -1,6 +1,9 @@
 package Logic;
 
 import javax.swing.JOptionPane;
+import java.awt.Toolkit;
+import java.awt.datatransfer.Clipboard;
+import java.awt.datatransfer.StringSelection;
 
 public class Run {
 
@@ -30,14 +33,14 @@ public class Run {
      *
      * @return
      */
-    public String generateID(boolean onlyNumbersID) {
-        String str = "";
-        if (!onlyNumbersID) {
-            str = "" + ((int)(Math.random() * 10000)) + randomLetter() + (int) (Math.random() * 1000);
+    public String generateID(boolean generateIdWithOnlyNumbers) {
+        String GeneratedID = "";
+        if (!generateIdWithOnlyNumbers) {
+            GeneratedID = "" + ((int) (Math.random() * 10000)) + randomLetter() + (int) (Math.random() * 1000);
         } else {
-            str = "" + ((int)(Math.random() * 10000)) + ((int) (Math.random() * 10000));
+            GeneratedID = "" + ((int) (Math.random() * 10000)) + ((int) (Math.random() * 10000));
         }
-        return str;
+        return GeneratedID;
     }
 
     private String randomLetter() {
@@ -53,7 +56,7 @@ public class Run {
         result = alfabeto[randomLetterIndex];
         return result;
     }
-    
+
     /**
      * 0=Error 1=Message 2=Alert 3=What
      *
@@ -79,6 +82,16 @@ public class Run {
             default:
                 throw new AssertionError();
         }
+    }
+
+    public static void copyToClipBoard(String textToSaveIntoClipBoard) {
+        StringSelection selection = new StringSelection(textToSaveIntoClipBoard);
+        Clipboard clipboard = Toolkit.getDefaultToolkit().getSystemClipboard();
+        clipboard.setContents(selection, selection);
+    }
+    
+    public static void runDoneMessage(String message) {
+        Threads.MessagePopUp messagePopUp = new Threads.MessagePopUp(message);
     }
 
 }
