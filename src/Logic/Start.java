@@ -483,23 +483,9 @@ public class Start extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton_saveManualIdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_saveManualIdActionPerformed
-        if (!jtextField_manualId.getText().equals("")) {
-            boolean repeat = false;
-            for (int i = 0; i < Memory.data.getUserData().getID_list().size(); i++) {
-                if (Memory.data.getUserData().getID_list().get(i).toString().equals(jtextField_manualId.getText())) {
-                    System.out.println("Elemento repetido.");
-                    repeat = true;
-                    break;
-                }
-            }
-            if (!repeat) {
-jButton_copyManualIdIntoClipBoard.setEnabled(true);
-            } else {
-                JOptionPane.showMessageDialog(null, "ID " + jtextField_manualId.getText() + " already exists.", Memory.title, 0);
-                jtextField_manualId.setText("");
-            }
-        } else {
-            System.out.println("empty");
+        if (idNotRepeatedInsideDataFile(this.jtextField_manualId.getText())
+                && isThereAnIdTypedAtManualIdJtextField()){
+            saveManualIdInsideDataFile();
         }
     }//GEN-LAST:event_jButton_saveManualIdActionPerformed
 
