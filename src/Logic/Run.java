@@ -10,6 +10,18 @@ public class Run {
     public void RUN() {
         Memory.data.dataManage();
         Start start = new Start();
+        tests();
+    }
+
+    private void tests() {
+        for (int i = 0; i < Memory.data.getUserDataPrefixesSize(); i++) {
+            System.out.println(Memory.data.getUserData().getPrefix_list().get(i));
+        }
+        System.out.println(Memory.data.isThereAtLeastOnePrefixSaved());
+
+        StringBuilder sb = new StringBuilder("hello");
+        sb.insert(0, "he");
+        System.out.println(sb.toString());
     }
 
     /**
@@ -89,7 +101,7 @@ public class Run {
         Clipboard clipboard = Toolkit.getDefaultToolkit().getSystemClipboard();
         clipboard.setContents(selection, selection);
     }
-    
+
     public static void runDoneMessage(String message) {
         Threads.MessagePopUp messagePopUp = new Threads.MessagePopUp(message);
     }

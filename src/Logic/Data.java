@@ -37,9 +37,11 @@ public class Data {
 
     private void writeData() {
         try {
+            System.out.print("Creating data file... ");
             ObjectOutputStream writeFile = new ObjectOutputStream(new FileOutputStream(Memory.dataFilePath));
             writeFile.writeObject(userData);
             writeFile.close();
+            System.out.println("success");
         } catch (IOException e) {
             System.out.println("Error creating data file.");
             e.printStackTrace();
@@ -90,13 +92,21 @@ public class Data {
     public int getUserDataIdsSize() {
         return this.userData.getID_list().size();
     }
-    
+
     public int getUserDataPrefixesSize() {
         return this.userData.getPrefix_list().size();
     }
 
     public void saveIdIntoUserData(String idGenerated) {
         this.userData.getID_list().add(new Objects.ID(idGenerated));
+    }
+
+    public boolean isThereAtLeastOnePrefixSaved() {
+        if (this.userData.getPrefix_list().isEmpty()) {
+            return false;
+        } else {
+            return true;
+        }
     }
 
 }

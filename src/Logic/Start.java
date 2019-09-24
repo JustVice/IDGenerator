@@ -32,7 +32,6 @@ public class Start extends javax.swing.JFrame {
 
     private void panelExistingIdsAndPrefixesSettings() {
         jTextArea_existingIdsAndPrefixes.setEditable(false);
-        jTextArea_existingIdsAndPrefixes.setCaretPosition(0);
         jTextArea_existingIdsAndPrefixes.setLineWrap(true);
         jTextArea_existingIdsAndPrefixes.setWrapStyleWord(true);
         jTextArea_existingIdsAndPrefixes.setCaretPosition(0);
@@ -105,12 +104,13 @@ public class Start extends javax.swing.JFrame {
         jtextField_manualId = new javax.swing.JTextField();
         jButton_saveManualId = new javax.swing.JButton();
         jButton_copyManualIdIntoClipBoard = new javax.swing.JButton();
+        jLabel8 = new javax.swing.JLabel();
         jPanel4 = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
         twitterLabel = new javax.swing.JLabel();
         githubLabel = new javax.swing.JLabel();
         AllLinksLabel = new javax.swing.JLabel();
-        jLabel7 = new javax.swing.JLabel();
+        jLabel9 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -160,7 +160,7 @@ public class Start extends javax.swing.JFrame {
             }
         });
 
-        jComboBox1_idLenght.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1 block", "2 blocks", "3 blocks" }));
+        jComboBox1_idLenght.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1 block", "2 blocks", "3 blocks", "4 blocks" }));
 
         jLabel6.setText("ID size:");
 
@@ -222,10 +222,10 @@ public class Start extends javax.swing.JFrame {
                 .addComponent(jtextField_newId, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabel6_status_main)
-                .addContainerGap(145, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        jTabbedPane1.addTab("Main", jPanel1);
+        jTabbedPane1.addTab("Main menu", jPanel1);
 
         jLabel4.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         jLabel4.setText("Prefixes");
@@ -305,21 +305,21 @@ public class Start extends javax.swing.JFrame {
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 597, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 477, Short.MAX_VALUE)
                 .addContainerGap())
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 387, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 253, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
-        jTabbedPane1.addTab("Stored", jPanel3);
+        jTabbedPane1.addTab("DataStored", jPanel3);
 
-        jLabel2.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
-        jLabel2.setText("Manual ID");
+        jLabel2.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jLabel2.setText("Create manual ID");
 
         jtextField_manualId.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jtextField_manualId.addKeyListener(new java.awt.event.KeyAdapter() {
@@ -344,45 +344,42 @@ public class Start extends javax.swing.JFrame {
             }
         });
 
+        jLabel8.setText("Write text inside the text field and save it as an ID.");
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
+                .addContainerGap()
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jtextField_manualId))
+                    .addComponent(jtextField_manualId)
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addGap(183, 183, 183)
-                                .addComponent(jLabel2))
-                            .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addGap(59, 59, 59)
-                                .addComponent(jButton_saveManualId)))
-                        .addGap(0, 175, Short.MAX_VALUE)))
+                            .addComponent(jLabel2)
+                            .addComponent(jButton_saveManualId)
+                            .addComponent(jButton_copyManualIdIntoClipBoard)
+                            .addComponent(jLabel8))
+                        .addGap(0, 104, Short.MAX_VALUE)))
                 .addContainerGap())
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(167, 167, 167)
-                .addComponent(jButton_copyManualIdIntoClipBoard)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addContainerGap(208, Short.MAX_VALUE)
+                .addContainerGap()
                 .addComponent(jLabel2)
-                .addGap(28, 28, 28)
-                .addComponent(jtextField_manualId, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jLabel8)
+                .addGap(15, 15, 15)
+                .addComponent(jtextField_manualId, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
                 .addComponent(jButton_saveManualId)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jButton_copyManualIdIntoClipBoard)
-                .addGap(43, 43, 43))
+                .addContainerGap(94, Short.MAX_VALUE))
         );
 
-        jTabbedPane1.addTab("Manual", jPanel2);
+        jTabbedPane1.addTab("Create manual", jPanel2);
 
         jPanel4.setBackground(new java.awt.Color(255, 204, 255));
 
@@ -412,7 +409,7 @@ public class Start extends javax.swing.JFrame {
             }
         });
 
-        jLabel7.setText("Creator links:");
+        jLabel9.setText("VICE's links");
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
@@ -421,33 +418,33 @@ public class Start extends javax.swing.JFrame {
             .addGroup(jPanel4Layout.createSequentialGroup()
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel4Layout.createSequentialGroup()
-                        .addGap(118, 118, 118)
-                        .addComponent(twitterLabel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(githubLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(AllLinksLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel4Layout.createSequentialGroup()
-                        .addGap(21, 21, 21)
-                        .addComponent(jLabel7))
+                        .addContainerGap()
+                        .addComponent(jLabel3))
                     .addGroup(jPanel4Layout.createSequentialGroup()
                         .addGap(29, 29, 29)
-                        .addComponent(jLabel3)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel9)
+                            .addGroup(jPanel4Layout.createSequentialGroup()
+                                .addComponent(twitterLabel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(githubLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(AllLinksLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                .addContainerGap(29, Short.MAX_VALUE))
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
-                .addGap(28, 28, 28)
-                .addComponent(jLabel7)
-                .addGap(18, 18, 18)
+                .addGap(35, 35, 35)
+                .addComponent(jLabel9)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(githubLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(twitterLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(AllLinksLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 44, Short.MAX_VALUE)
                 .addComponent(jLabel3)
-                .addGap(22, 22, 22))
+                .addGap(20, 20, 20))
         );
 
         jTabbedPane1.addTab("About", jPanel4);
@@ -501,31 +498,46 @@ public class Start extends javax.swing.JFrame {
 
     private void jButton_generateNewIDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_generateNewIDActionPerformed
         String idGenerated = "";
-        idGenerated = setPrefixIfEnabled();
-        idGenerated = Memory.run.generateID(this.jRadioButton_generateIdWithOnlyNumbers.isSelected());
-        idGenerated = addDashsAndMoreLengthToIdGenerated(idGenerated);
+        idGenerated = giveIdToTheIdGenerated();
+        idGenerated = setPrefixIfEnabled(idGenerated);
         if (idNotRepeatedInsideDataFile(idGenerated)) {
             saveIdGeneratedIntoDataFile(idGenerated);
             userInterfaceChangesWhenNewIdGeneratedAndCopyToClipBoard(idGenerated);
         }
     }//GEN-LAST:event_jButton_generateNewIDActionPerformed
 
-    private String setPrefixIfEnabled() {
+    private String setPrefixIfEnabled(String idGenerated) {
         if (this.jRadioButton1_add_prefix.isSelected()) {
-            return this.jComboBox1_prefixes.getSelectedItem().toString();
+            if (Memory.data.isThereAtLeastOnePrefixSaved()) {
+                StringBuilder stringBuilderToAddThePrefix = new StringBuilder(idGenerated);
+                stringBuilderToAddThePrefix.insert(0, this.jComboBox1_prefixes.getSelectedItem().toString());
+                return stringBuilderToAddThePrefix.toString();
+            } else {
+                return idGenerated;
+            }
         } else {
-            return "";
+            return idGenerated;
         }
     }
 
-    private String addDashsAndMoreLengthToIdGenerated(String temporalId) {
+    private String giveIdToTheIdGenerated() {
+        String temporalId = "";
         switch (this.jComboBox1_idLenght.getSelectedItem().toString()) {
             case "1 block":
+                temporalId = Memory.run.generateID(jRadioButton_generateIdWithOnlyNumbers.isSelected());
                 return temporalId;
             case "2 blocks":
+                temporalId = Memory.run.generateID(jRadioButton_generateIdWithOnlyNumbers.isSelected());
                 temporalId += "-" + Memory.run.generateID(jRadioButton_generateIdWithOnlyNumbers.isSelected());
                 return temporalId;
             case "3 blocks":
+                temporalId = Memory.run.generateID(jRadioButton_generateIdWithOnlyNumbers.isSelected());
+                temporalId += "-" + Memory.run.generateID(jRadioButton_generateIdWithOnlyNumbers.isSelected());
+                temporalId += "-" + Memory.run.generateID(jRadioButton_generateIdWithOnlyNumbers.isSelected());
+                return temporalId;
+            case "4 blocks":
+                temporalId = Memory.run.generateID(jRadioButton_generateIdWithOnlyNumbers.isSelected());
+                temporalId += "-" + Memory.run.generateID(jRadioButton_generateIdWithOnlyNumbers.isSelected());
                 temporalId += "-" + Memory.run.generateID(jRadioButton_generateIdWithOnlyNumbers.isSelected());
                 temporalId += "-" + Memory.run.generateID(jRadioButton_generateIdWithOnlyNumbers.isSelected());
                 return temporalId;
@@ -551,8 +563,10 @@ public class Start extends javax.swing.JFrame {
         String prefixesStored = loadPrefixesToShowOnStoredIdsPanel();
         //Refactor variables with organized info
         idsStored = organizeIdsStoredInfoForjTextPanel(idsStored);
-        prefixesStored = organizePrefixesStoredInfoForjTextPanel(idsStored);
+        prefixesStored = organizePrefixesStoredInfoForjTextPanel(prefixesStored);
         setTextInsideJTextPanelToShowStoredIdsAndPrefixes(idsStored, prefixesStored);
+        //Put the scroll at the top of the textArea panel.
+        jTextArea_existingIdsAndPrefixes.setCaretPosition(0);
     }//GEN-LAST:event_jTabbedPane1MouseClicked
 
     private String loadIdsToShowOnStoredIdsPanel() {
@@ -585,6 +599,7 @@ public class Start extends javax.swing.JFrame {
             idsStoredText += "Number of IDs created: " + Memory.data.getUserDataIdsSize();
             idsStoredText += "\n";
             idsStoredText += "IDs created:\n\n " + idsStored;
+            idsStoredText += "\n\n";
             return idsStoredText;
         } else {
             return idsStored + "\n\n";
@@ -594,9 +609,9 @@ public class Start extends javax.swing.JFrame {
     private String organizePrefixesStoredInfoForjTextPanel(String prefixesStored) {
         String prefixesStoredText = "";
         if (!prefixesStored.equals("No prefixes stored.")) {
-            prefixesStoredText += "Number of IDs created: " + Memory.data.getUserDataIdsSize();
+            prefixesStoredText += "Number of Prefixes created: " + Memory.data.getUserDataPrefixesSize();
             prefixesStoredText += "\n";
-            prefixesStoredText += "IDs created:\n\n " + prefixesStored;
+            prefixesStoredText += "Prexises created:\n\n " + prefixesStored;
             return prefixesStoredText;
         } else {
             return prefixesStored + "\n\n";
@@ -696,22 +711,25 @@ public class Start extends javax.swing.JFrame {
         for (int i = 0; i < Memory.data.getUserData().getPrefix_list().size(); i++) {
             if (Memory.data.getUserData().getPrefix_list().get(i).getID() == item.getID()) {
                 Memory.data.getUserData().getPrefix_list().remove(i);
+                System.out.println("Prefix " + item.getPrefix() + " deleted.");
+                break;
             }
         }
         Memory.data.updateInfo();
     }
 
     private void jRadioButton1_add_prefixActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton1_add_prefixActionPerformed
-        if (jRadioButton1_add_prefix.isSelected()) {
+        showPrefixesComboBoxToSelectAPrefixToTheID();
+    }//GEN-LAST:event_jRadioButton1_add_prefixActionPerformed
+
+    private void showPrefixesComboBoxToSelectAPrefixToTheID() {
+        boolean isRadioButtonSelected = jRadioButton1_add_prefix.isSelected();
+        if (isRadioButtonSelected) {
             jComboBox1_prefixes.setVisible(true);
-            for (Prefix item : Memory.data.getUserData().getPrefix_list()) {
-                jComboBox1_prefixes.addItem(item.getPrefix());
-            }
         } else {
-            jComboBox1_prefixes.removeAllItems();
             jComboBox1_prefixes.setVisible(false);
         }
-    }//GEN-LAST:event_jRadioButton1_add_prefixActionPerformed
+    }
 
     private void jTextField1_new_prefixKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField1_new_prefixKeyTyped
         char c = evt.getKeyChar();
@@ -775,7 +793,8 @@ public class Start extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel6_status_main;
-    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JLabel jLabel_versionLabel;
     private javax.swing.JList<Prefix> jList1_prefixes;
     private javax.swing.JPanel jPanel1;
