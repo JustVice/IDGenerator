@@ -428,8 +428,8 @@ public class Start extends javax.swing.JFrame {
                                 .addComponent(twitterLabel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(18, 18, 18)
                                 .addComponent(githubLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(AllLinksLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                                .addGap(27, 27, 27)
+                                .addComponent(AllLinksLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 186, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                 .addContainerGap(29, Short.MAX_VALUE))
         );
         jPanel4Layout.setVerticalGroup(
@@ -442,7 +442,7 @@ public class Start extends javax.swing.JFrame {
                     .addComponent(githubLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(twitterLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(AllLinksLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 44, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 78, Short.MAX_VALUE)
                 .addComponent(jLabel3)
                 .addGap(20, 20, 20))
         );
@@ -646,15 +646,15 @@ public class Start extends javax.swing.JFrame {
     }//GEN-LAST:event_jtextField_manualIdKeyTyped
 
     private void twitterLabelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_twitterLabelMouseClicked
-        openLink("https://twitter.com/_justvice_");
+        openLink("http://split-vice.com/s/twitter");
     }//GEN-LAST:event_twitterLabelMouseClicked
 
     private void githubLabelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_githubLabelMouseClicked
-        openLink("https://github.com/JustVice?tab=repositories");
+        openLink("http://split-vice.com/s/github-repos");
     }//GEN-LAST:event_githubLabelMouseClicked
 
     private void AllLinksLabelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_AllLinksLabelMouseClicked
-        openLink("https://justvice.github.io/links/");
+        openLink("http://split-vice.com/links");
     }//GEN-LAST:event_AllLinksLabelMouseClicked
 
     private void jButton1_add_new_prefixActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1_add_new_prefixActionPerformed
